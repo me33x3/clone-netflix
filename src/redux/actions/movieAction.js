@@ -1,5 +1,6 @@
-import { movieActions } from "../reducers/movieReducer";
 import api from "../api";
+import { movieActions } from "../reducers/movieReducer";
+import { action } from "./action";
 
 const API_KEY = process.env.REACT_APP_API_KEY
 
@@ -24,7 +25,9 @@ function getMovies() {
       popularMovies: popularMovies.data.results,
       topRatedMovies: topRatedMovies.data.results,
       upComingMovies: upComingMovies.data.results
-    }))
+    }));
+
+    dispatch(action.endLoading());
   };
 }
 
