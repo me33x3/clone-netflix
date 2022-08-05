@@ -16,3 +16,32 @@
 .nav-item:hover {
   color: red;
 }
+
+.banner {
+  height: 700px;
+  display: flex;
+  align-items: center;
+}
+
+.banner::before {
+  position: absolute;
+  content: '';
+  width:100%;
+  height: 700px;
+  background : linear-gradient(to top, black, transparent);
+}
+
+.banner-info {
+  width: 50%;
+  margin-left: 50px;
+  z-index: 1;
+}
+
+.banner-info .title {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.banner-info .overview {
+  font-size: 13px;
+}
