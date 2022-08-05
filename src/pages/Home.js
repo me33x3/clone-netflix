@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { action, movieAction } from '../redux/actions';
+import { movieAction } from '../redux/actions';
 import { Container, Row, Col} from 'react-bootstrap'
 import ClipLoader from 'react-spinners/ClipLoader';
 import { Banner, RankCard } from '../components';
@@ -8,18 +8,29 @@ import { Banner, RankCard } from '../components';
 const Home = () => {
   const dispatch = useDispatch();
 
-  const { popularMovies, topRatedMovies, upComingMovies } = useSelector((state) => state.movie);
-  const { loading } = useSelector((state) => state.base);
+  const {
+    trending,
+    popularMovies,
+    topRatedMovies,
+    upComingMovies,
+    load
+  } = useSelector((state) => state.movie);
+
   const ranIdx = Math.floor(Math.random() * 20);
 
+  const getData = () => {
+    
+  };
+
   useEffect(() => {
+    dispatch(movieAction.getTrending());
     dispatch(movieAction.getMovies());
   }, []);
 
-  if (loading) {
+  if (!load.trend || !load.movie) {
     return (
       <div className='spinner'>
-        <ClipLoader color='red' loading={ loading } size={ 100 } />
+        <ClipLoader color='red' loading={ true } size={ 100 } />
       </div>
     );
   }

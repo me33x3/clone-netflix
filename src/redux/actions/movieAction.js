@@ -1,8 +1,17 @@
 import api from "../api";
 import { movieActions } from "../reducers/movieReducer";
-import { action } from "./action";
 
 const API_KEY = process.env.REACT_APP_API_KEY
+
+function getTrending() {
+  return async (dispatch) => {
+    const trendingApi = await api.get(`/trending/all/day?api_key=${API_KEY}`);
+
+    dispatch(movieActions.getTrending({
+      trending: trendingApi.data.results
+    }));
+  };
+}
 
 function getMovies() {
   return async (dispatch) => {
@@ -26,11 +35,10 @@ function getMovies() {
       topRatedMovies: topRatedMovies.data.results,
       upComingMovies: upComingMovies.data.results
     }));
-
-    dispatch(action.endLoading());
   };
 }
 
 export const movieAction = {
+  getTrending,
   getMovies
 };

@@ -1,9 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { reducer, movieReducer } from "./reducers";
+import { movieReducer } from "./reducers";
 
 const store = configureStore({
   reducer: {
-    base: reducer,
     movie: movieReducer
   }
 });

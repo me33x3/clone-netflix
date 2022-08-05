@@ -55,7 +55,7 @@
 .rank-card {
   display: flex;
   align-items: center;
-  margin: -100px 20px 0 20px;
+  margin-top: -150px;
 }
 
 .rank-num {
@@ -66,7 +66,7 @@
 
 .rank-img {
   height: 160px;
-  margin-left: -10px;
+  margin-left: -20px;
   z-index: 1;
 }
 
