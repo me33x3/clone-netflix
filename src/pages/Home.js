@@ -37,11 +37,11 @@ const Home = () => {
 
   return (
     <div>
-      <Banner movie={ popularMovies[ranIdx] } />
+      <Banner movie={ trending[ranIdx] } />
 
       <Container>
         <Row>
-          {popularMovies.slice(0, 6).map((movie, idx) => (
+          {trending.slice(0, 6).map((movie, idx) => (
             <Col xl={ 2 } md={ 4 } sm={ 12 } key={ idx }>
               <RankCard movie={ movie } rank={ idx + 1 } key={ idx } />
             </Col>

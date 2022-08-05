@@ -5,11 +5,13 @@ const API_KEY = process.env.REACT_APP_API_KEY
 
 function getTrending() {
   return async (dispatch) => {
-    const trendingApi = await api.get(`/trending/all/day?api_key=${API_KEY}`);
+    const trendingApi = await api.get(`/trending/all/day?api_key=${API_KEY}&media_type=all&time_window=day&language=ko-KR`);
 
     dispatch(movieActions.getTrending({
       trending: trendingApi.data.results
     }));
+
+    console.log(trendingApi.data.results);
   };
 }
 
