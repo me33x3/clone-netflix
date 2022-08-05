@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { action, movieAction } from '../redux/actions';
+import { Container, Row, Col} from 'react-bootstrap'
 import ClipLoader from 'react-spinners/ClipLoader';
-import Banner from '../components/Banner';
+import { Banner, RankCard } from '../components';
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -26,8 +27,18 @@ const Home = () => {
   return (
     <div>
       <Banner movie={ popularMovies[ranIdx] } />
+
+      <Container>
+        <Row>
+          {popularMovies.slice(0, 6).map((movie, idx) => (
+            <Col xl={ 2 } md={ 4 } sm={ 12 } key={ idx }>
+              <RankCard movie={ movie } rank={ idx + 1 } key={ idx } />
+            </Col>
+          ))}
+        </Row>
+      </Container>
     </div>
-  );
+  )
 }
 
 export default Home;

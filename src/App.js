@@ -1,7 +1,7 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { Routes, Route } from 'react-router-dom';
-import Navigation from './components/Navigation';
+import { Navigation } from './components';
 import Home from './pages/Home';
 
 function App() {

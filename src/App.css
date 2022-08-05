@@ -1,9 +1,4 @@
 .App {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
   background-color: black;
   color: white;
 }
@@ -18,10 +13,14 @@
 }
 
 .spinner {
+  position: absolute;
+  left: 0;
+  width: 100%;
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: black;
 }
 
 .banner {
@@ -51,4 +50,28 @@
 
 .banner-info .overview {
   font-size: 13px;
+}
+
+.rank-card {
+  display: flex;
+  align-items: center;
+  margin: -100px 20px 0 20px;
+}
+
+.rank-num {
+  font-family: "Championship";
+  font-size: 200px;
+  z-index: 1;
+}
+
+.rank-img {
+  height: 160px;
+  margin-left: -10px;
+  z-index: 1;
+}
+
+/* font */
+@font-face {
+  font-family: "Championship";
+  src: url("./fonts/Championship.ttf");
 }
