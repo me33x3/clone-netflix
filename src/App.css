@@ -70,6 +70,21 @@
   z-index: 1;
 }
 
+.slide-item {
+  padding-bottom: 50px;
+}
+
+.slide-item p {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 20px;
+}
+
+.slide-card {
+  width: 200px;
+  height: 150px;
+}
+
 /* font */
 @font-face {
   font-family: "Championship";

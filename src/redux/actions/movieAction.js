@@ -10,8 +10,6 @@ function getTrending() {
     dispatch(movieActions.getTrending({
       trending: trendingApi.data.results
     }));
-
-    console.log(trendingApi.data.results);
   };
 }
 

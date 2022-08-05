@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { movieAction } from '../redux/actions';
 import { Container, Row, Col} from 'react-bootstrap'
 import ClipLoader from 'react-spinners/ClipLoader';
-import { Banner, RankCard } from '../components';
+import { Banner, RankCard, Slide } from '../components';
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -17,10 +17,6 @@ const Home = () => {
   } = useSelector((state) => state.movie);
 
   const ranIdx = Math.floor(Math.random() * 20);
-
-  const getData = () => {
-    
-  };
 
   useEffect(() => {
     dispatch(movieAction.getTrending());
@@ -48,6 +44,23 @@ const Home = () => {
           ))}
         </Row>
       </Container>
+
+      <div>
+        <div className='slide-item'>
+          <p>인기있는 영화</p>
+          <Slide movies={ popularMovies } />
+        </div>
+        
+        <div className='slide-item'>
+          <p>추천 영화</p>
+          <Slide movies={ topRatedMovies } />
+        </div>
+
+        <div className='slide-item'>
+          <p>개봉 예정 영화</p>
+          <Slide movies={ upComingMovies } />
+        </div>
+      </div>
     </div>
   )
 }
