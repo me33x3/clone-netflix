@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { movieAction } from '../redux/actions';
 import { Container, Row, Col} from 'react-bootstrap'
 import ClipLoader from 'react-spinners/ClipLoader';
-import { Banner, RankCard, Slide } from '../components';
+import { Banner, RankCard, Carousel } from '../components';
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -46,20 +46,8 @@ const Home = () => {
       </Container>
 
       <div>
-        <div className='slide-item'>
-          <p>인기있는 영화</p>
-          <Slide movies={ popularMovies } />
-        </div>
-        
-        <div className='slide-item'>
-          <p>추천 영화</p>
-          <Slide movies={ topRatedMovies } />
-        </div>
-
-        <div className='slide-item'>
-          <p>개봉 예정 영화</p>
-          <Slide movies={ upComingMovies } />
-        </div>
+        <p>인기있는 영화</p>
+        <Carousel movies={ popularMovies } />
       </div>
     </div>
   )
