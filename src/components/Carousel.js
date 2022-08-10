@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons'
 import CarouselCard from './CarouselCard'
 
-const Carousel = ({ movies }) => {
+const Carousel = ({ title, movies }) => {
   const [focus, setFocus] = useState(0);
   const wrapperRef = useRef(null);
 
@@ -23,12 +23,18 @@ const Carousel = ({ movies }) => {
     margin: "0 auto 0 auto"
   };
 
-  const carouselWrapperStyle = {
+  const titleStyle = {
+    marginBottom: "1vh",
+    fontWeight: "bold",
+    fontSize: "1.4vw"
+  };
+
+  const wrapperStyle = {
     display: "flex",
     width: "100%"
   };
 
-  const carouselCardStyle = {
+  const cardStyle = {
     backgroundSize: "cover",
     backgroundPosition: "center",
     minWidth: `${ unit }vw`,
@@ -37,7 +43,7 @@ const Carousel = ({ movies }) => {
     borderRadius: "5px",
   };
 
-  const carouselBtnStyle = {
+  const btnStyle = {
     marginTop: `-${ containerHeight }vw`,
     width: `${ (100 - containerWidth) / 2 }vw`,
     height: `${ containerHeight }vw`,
@@ -46,7 +52,7 @@ const Carousel = ({ movies }) => {
     opacity: "0.7",
     textAlign: "center",
     lineHeight: `${ containerHeight }vw`,
-    fontSize: "1.5vw"
+    fontSize: "1.4vw"
   };
 
   const prevStyle = {
@@ -79,20 +85,22 @@ const Carousel = ({ movies }) => {
 
   return (
     <div style={ carouselStyle }>
-      <div style={ carouselWrapperStyle } ref={ wrapperRef }>
+      <div style={ titleStyle }>{ title }</div>
+      
+      <div style={ wrapperStyle } ref={ wrapperRef }>
         { movies.map((movie) => (
-          <CarouselCard movie={ movie } key={ movie.id } carouselCardStyle={ carouselCardStyle } />
+          <CarouselCard movie={ movie } key={ movie.id } cardStyle={ cardStyle } />
         )) }
       </div>
 
       { focus > 0 && 
-        <div style={ Object.assign({}, carouselBtnStyle, prevStyle) } onClick={ () => prev() }>
+        <div style={ Object.assign({}, btnStyle, prevStyle) } onClick={ () => prev() }>
           <FontAwesomeIcon icon={ faAngleLeft } />
         </div>
       }
 
       { focus < (itemCnt - viewCnt) && 
-        <div style={ Object.assign({}, carouselBtnStyle, nextStyle) } onClick={ () => next() }>
+        <div style={ Object.assign({}, btnStyle, nextStyle) } onClick={ () => next() }>
           <FontAwesomeIcon icon={ faAngleRight } />
         </div>
       }

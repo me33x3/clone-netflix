@@ -46,8 +46,7 @@ const Home = () => {
       </Container>
 
       <div>
-        <p>인기있는 영화</p>
-        <Carousel movies={ popularMovies } />
+        <Carousel title={ "인기있는 영화" } movies={ popularMovies } />
       </div>
     </div>
   )
