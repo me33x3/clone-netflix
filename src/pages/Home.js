@@ -46,7 +46,15 @@ const Home = () => {
       </Container>
 
       <div>
+        <Carousel title={ "개봉 예정 영화" } movies={ upComingMovies } />
+      </div>
+
+      <div>
         <Carousel title={ "인기있는 영화" } movies={ popularMovies } />
+      </div>
+
+      <div>
+        <Carousel title={ "평점이 높은 영화" } movies={ topRatedMovies } />
       </div>
     </div>
   )

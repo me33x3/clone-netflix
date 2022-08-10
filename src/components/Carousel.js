@@ -19,7 +19,7 @@ const Carousel = ({ title, movies }) => {
 
   const carouselStyle = {
     width: `${ containerWidth }vw`,
-    paddingBottom: `${ containerHeight }vw`,
+    paddingBottom: '30px',
     margin: "0 auto 0 auto"
   };
 
